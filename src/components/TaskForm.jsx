@@ -34,7 +34,7 @@ const TaskForm = () => {
     if(params.id){
       setTask(tasks.find(task => task.id === params.id));
     }
-  },[params.id, task])
+  },[])
 
   const handleSubmit = (e)=>{
     e.preventDefault()
@@ -62,7 +62,7 @@ const TaskForm = () => {
         />
 
 
-        <label label htmlFor="description" className="block text-xs font-bold mb-2 " >Descripcion:</label>
+        <label htmlFor="description" className="block text-xs font-bold mb-2 " >Descripcion:</label>
         <textarea name="description" placeholder="Description" onChange={handleChange}
         value={task.description} 
         className="w-full p-2 rounded-md bg-zinc-600 mb-2"
