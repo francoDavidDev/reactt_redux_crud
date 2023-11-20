@@ -20,9 +20,9 @@ const tasks =  useSelector(state => state.tasks)
     <div className='w-4/6'>
 
       <header className=' flex justify-between items-center py-4'>
-        <h1>Task {tasks.length }</h1>
+        <h1 className='font-bold text-lg'>Tasks {tasks.length }</h1>
         <Link to='/create-task' 
-        className='bg-indigo-600 px-2 py-1 rounded-sm text-sm'>
+        className='bg-indigo-600 px-5 py-3 rounded-xl text-xl hover:bg-indigo-800'>
           Create Task
         </Link>
         
@@ -32,21 +32,23 @@ const tasks =  useSelector(state => state.tasks)
 
         {tasks.map((task)=>{
         return(
-          <div key={task.id} className='bg-neutral-800 p-4 rounded-md'>
-              <header className='flex justify-between'>
-              <h3> {task.title} </h3>
+          <div key={task.id} className='bg-neutral-800 p-4 rounded-md border-2 border-indigo-500 shadow-xl'>
+              <header className='flex justify-between pb-3  border-b '>
+              <h3 className='font-bold text-lg'> {task.title} </h3>
 
-              <div className='flex gap-x-2'>
+              <div className='flex gap-x-2 '>
                   <Link to={`/edit-task/${task.id}`}
                   className='bg-zinc-600 px-2 py-1 text-xs rounded-md'
-                  > Edit</Link>
-                  <button  className='bg-red-500 px-2 py-1 text-xs rounded-md' 
+                  > Edit
+                  </Link>
+                  
+                  <button  className='bg-indigo-500 px-2 py-1 text-xs rounded-md' 
                    onClick={()=>handleDelete(task.id)}>Delete</button>
                  
               </div>
         
               </header>
-              <p> {task.description} </p>
+              <p className='pt-3 '> {task.description} </p>
           </div>
         )
       })}
